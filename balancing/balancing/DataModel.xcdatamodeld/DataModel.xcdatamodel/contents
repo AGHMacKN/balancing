@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="11G63" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Mechanism" representedClassName="Mechanism" syncable="YES">
+        <attribute name="mechanismID" optional="YES" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="No Name" syncable="YES"/>
+        <relationship name="rods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Rod" inverseName="mechanism" inverseEntity="Rod" syncable="YES"/>
+        <relationship name="supports" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Support" inverseName="mechanism" inverseEntity="Support" syncable="YES"/>
+    </entity>
+    <entity name="Rod" representedClassName="Rod" syncable="YES">
+        <attribute name="mass" optional="YES" attributeType="Float" defaultValueString="1" syncable="YES"/>
+        <attribute name="nextElementNumber" optional="YES" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="previousElementNumber" optional="YES" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="xA" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="xB" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="yA" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="yB" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="mechanism" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Mechanism" inverseName="rods" inverseEntity="Mechanism" syncable="YES"/>
+    </entity>
+    <entity name="Support" representedClassName="Support" syncable="YES">
+        <attribute name="nextElementNumber" optional="YES" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="previousElementNumber" optional="YES" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="x" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="y" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="mechanism" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Mechanism" inverseName="supports" inverseEntity="Mechanism" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Mechanism" positionX="-5652" positionY="-1827" width="128" height="105"/>
+        <element name="Rod" positionX="-5456" positionY="-1926" width="128" height="180"/>
+        <element name="Support" positionX="-5456" positionY="-1710" width="128" height="135"/>
+    </elements>
+</model>
