@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "ContentView.h"
+#import "SupportDetailsViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <CoreData/CoreData.h>
 #import "Mechanism.h"
 
-@interface ViewController : UIViewController <UIActionSheetDelegate, ContentViewDelegate>
+@interface ViewController : UIViewController <UIActionSheetDelegate, UIAlertViewDelegate, ContentViewDelegate, SupportDetailsDelegate>
 {
     ContentView *contentView;
     Mechanism *mechanism;

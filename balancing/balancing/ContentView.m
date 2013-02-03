@@ -26,7 +26,6 @@
 @implementation ContentView
 
 @synthesize delegate;
-@synthesize mechanism;
 @synthesize context;
 @synthesize startPoint;
 @synthesize endPoint;
@@ -48,17 +47,15 @@
     self.context = UIGraphicsGetCurrentContext();
     
     //draw supports first as they are images and must be in the background
-    NSArray *supports = [[NSArray alloc] initWithArray:
-                                        [self.mechanism.supports allObjects]];
     
-    for (Support *support in supports) {
+    for (Support *support in [self.delegate currentMechanismSupports]) {
         NSLog (@"Drawing support with parameters:");
         NSLog (@"x: %@", support.x);
         NSLog (@"y: %@", support.y);
         NSLog (@"type: %@", support.type);
         
         CGPoint point = CGPointMake([support.x floatValue] + self.frame.size.width/2 - 20,
-                                    [support.y floatValue] + self.frame.size.height/2 - 9);
+                                    - [support.y floatValue] + self.frame.size.height/2 - 9);
         if ([support.type isEqualToString:@"Grounded"])
         {
             UIImage *image = [UIImage imageNamed:@"PinnedSupportSmall.png"];
@@ -96,16 +93,15 @@
     
     
     //draw rods
-    NSArray *rods = [[NSArray alloc] initWithArray:
-                         [self.mechanism.rods allObjects]];
-    
-    for (Rod *rod in rods) {
+    for (Rod *rod in [self.delegate currentMechanismRods]) {
         NSLog (@"Drawing rod with parameters:");
         NSLog (@"aX: %@", rod.xA);
         NSLog (@"aY: %@", rod.yA);
         NSLog (@"bX: %@", rod.xB);
         NSLog (@"bY: %@", rod.yB);
         NSLog (@"Mass: %@", rod.mass);
+        
+        //draw rod
         CGPoint Apoint = CGPointMake([rod.xA floatValue] + self.frame.size.width/2,
                                      -[rod.yA floatValue] + self.frame.size.height/2);   // - is necessary because of Quartz inverted y axis
         CGPoint Bpoint = CGPointMake([rod.xB floatValue] + self.frame.size.width/2,
@@ -114,11 +110,23 @@
         CGContextMoveToPoint(self.context, Apoint.x, Apoint.y);
         CGContextAddLineToPoint(self.context, Bpoint.x, Bpoint.y);
         
-        CGRect rectangle = CGRectMake([rod.xA floatValue] + self.frame.size.width/2 -4,
-                                      [rod.yA floatValue] + self.frame.size.height/2 -4,
+        //draw circles
+        CGRect rectangleA = CGRectMake([rod.xA floatValue] + self.frame.size.width/2 -4,
+                                      - [rod.yA floatValue] + self.frame.size.height/2 -4,
                                       8, 8);
-        CGContextAddEllipseInRect(self.context, rectangle);
+        CGRect rectangleB = CGRectMake([rod.xB floatValue] + self.frame.size.width/2 -4,
+                                      - [rod.yB floatValue] + self.frame.size.height/2 -4,
+                                      8, 8);
+        CGContextAddEllipseInRect(self.context, rectangleA);
+        CGContextAddEllipseInRect(self.context, rectangleB);
+        
         CGContextStrokePath(self.context);
+        
+        //draw label
+//        UILabel *numberLabel = [[UILabel alloc] initWithFrame:
+//                                CGRectMake(Apoint.x - Bpoint.x + 10, Apoint.y - Bpoint.y - 10, 20, 20)];
+//        numberLabel.text = [rod.number stringValue];
+//        [self addSubview:numberLabel];
     }
 
 }

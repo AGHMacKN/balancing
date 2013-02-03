@@ -13,15 +13,15 @@
 @protocol ContentViewDelegate
 @optional
 - (void)createRodWithMass:(int)mass aPoint:(CGPoint)aPoint bPoint:(CGPoint)bPoint;
+- (NSArray *)currentMechanismRods;
+- (NSArray *)currentMechanismSupports;
 @end
 
 @interface ContentView : UIView
 {
     __unsafe_unretained id <ContentViewDelegate> delegate;
-    Mechanism *mechanism;
 }
 
 @property (assign, nonatomic) id <ContentViewDelegate> delegate;
-@property (nonatomic, strong) Mechanism *mechanism;
 
 @end

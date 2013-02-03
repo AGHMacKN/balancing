@@ -30,19 +30,27 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // let's fetch mechanisms from CoreData
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        self.managedObjectContext = [appDelegate managedObjectContext];
-        NSError *error;
-        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Mechanism"
-                                                   inManagedObjectContext:self.managedObjectContext];
-        [fetchRequest setEntity:entity];
-        NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-        
-        self.mechanisms = [[NSArray alloc] initWithArray:fetchedObjects];
+
     }
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    // let's fetch mechanisms from CoreData
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = [appDelegate managedObjectContext];
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Mechanism"
+                                              inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    self.mechanisms = [[NSArray alloc] initWithArray:fetchedObjects];
+    [self.tableView reloadData];
 }
 
 - (void)viewDidLoad

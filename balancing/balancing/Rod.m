@@ -2,7 +2,7 @@
 //  Rod.m
 //  balancing
 //
-//  Created by Grzegorz Krukiewicz-Gacek on 02.02.2013.
+//  Created by Grzegorz Krukiewicz-Gacek on 03.02.2013.
 //  Copyright (c) 2013 AGDev. All rights reserved.
 //
 
@@ -12,14 +12,15 @@
 
 @implementation Rod
 
-@dynamic number;
+@dynamic mass;
 @dynamic nextElementNumber;
+@dynamic number;
 @dynamic previousElementNumber;
 @dynamic xA;
 @dynamic xB;
 @dynamic yA;
 @dynamic yB;
-@dynamic mass;
+@dynamic bPointMass;
 @dynamic mechanism;
 
 @end
