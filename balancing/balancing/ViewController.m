@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "Rod.h"
 #import "Support.h"
+#import "CorrectionMass.h"
 
 #define kFIRST 1000
 
@@ -122,6 +123,11 @@
 
 - (void)saveMechanism
 {
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
     UIAlertView *mechanismName = [[UIAlertView alloc] initWithTitle:@"Mechanism name"
                                                             message:nil delegate:self
                                                   cancelButtonTitle:@"Cancel"
@@ -144,6 +150,46 @@
 
 - (void)calculate
 {
+    //first check if we can select between partial and full balancing
+    if ([self.mechanism.supports count] > 1) {
+        
+        BOOL isRoller = NO;
+        BOOL isGrounded = NO;
+        for (Support *support in [self.mechanism.supports allObjects]) {
+            if ([support.type isEqualToString:@"Roller"])
+                isRoller = YES;
+            else
+                isGrounded = YES;
+        }
+        //more logic should go here
+    }
+    
+    for (int i = [self.mechanism.rods count]; i > 0; i--) {
+        
+        Rod *currentRod = [[self.mechanism.rods allObjects] objectAtIndex: i-1];
+        
+        CorrectionMass *newCorrectionMass = [NSEntityDescription
+                                             insertNewObjectForEntityForName:@"CorrectionMass"
+                                             inManagedObjectContext:self.managedObjectContext];
+        newCorrectionMass.mass = [NSNumber numberWithInt:2];
+        newCorrectionMass.fromA = [NSNumber numberWithBool:YES];
+        
+        newCorrectionMass.x = currentRod.xA;
+        newCorrectionMass.y = currentRod.yA;
+        
+        int xA = [currentRod.xA intValue];
+        int yA = [currentRod.yA intValue];
+        int xB = [currentRod.xB intValue];
+        int yB = [currentRod.yB intValue];
+        
+        newCorrectionMass.lenght = [NSNumber numberWithFloat:sqrt((abs(xA) - abs(xB))^2 + (abs(yA) - abs(yB))^2) * [currentRod.previousMass floatValue] + sqrt((abs(xA) - abs(xB))^2 + (abs(yA) - abs(yB))^2)/2 * [currentRod.mass floatValue]];
+        
+        currentRod.correctionMass = newCorrectionMass;
+        newCorrectionMass.rod = currentRod;
+        
+        Rod *nextRod = [[self.mechanism.rods allObjects] objectAtIndex: i-2];
+        nextRod.previousMass = [NSNumber numberWithFloat:[newCorrectionMass.mass floatValue] + [currentRod.mass floatValue]];
+    }
     
 }
 
@@ -179,7 +225,7 @@
         UITextField *mechanismName = [alertView textFieldAtIndex:0];
         if (![mechanismName.text isEqualToString:@""]) {
             self.mechanism.name = mechanismName.text;
-       
+            
             NSError *error;
             if (![self.managedObjectContext save:&error]) {
                 NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
@@ -200,6 +246,11 @@
 - (NSArray *)currentMechanismSupports
 {
     return [self.mechanism.supports allObjects];
+}
+
+- (NSArray *)currentMechanismCorrectionMasses
+{
+    return [self.mechanism.correctionMasses allObjects];
 }
 
 - (void)createRodWithMass:(int)mass aPoint:(CGPoint)aPoint bPoint:(CGPoint)bPoint

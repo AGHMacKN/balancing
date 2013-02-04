@@ -9,6 +9,7 @@
 #import "ContentView.h"
 #import "Support.h"
 #import "Rod.h"
+#import "CorrectionMass.h"
 
 @interface ContentView ()
 {
@@ -122,11 +123,32 @@
         
         CGContextStrokePath(self.context);
         
-        //draw label
+        //draw labels
 //        UILabel *numberLabel = [[UILabel alloc] initWithFrame:
 //                                CGRectMake(Apoint.x - Bpoint.x + 10, Apoint.y - Bpoint.y - 10, 20, 20)];
 //        numberLabel.text = [rod.number stringValue];
 //        [self addSubview:numberLabel];
+        
+        
+        CGContextSetLineWidth(self.context, 2.0);
+        CGContextSetStrokeColorWithColor(self.context, [UIColor blackColor].CGColor);
+        
+        //draw correction masses
+        for (CorrectionMass *correctionMass in [self.delegate currentMechanismCorrectionMasses]) {
+            
+            CGPoint Apoint = CGPointMake([correctionMass.x floatValue] + self.frame.size.width/2,
+                                         -[correctionMass.y floatValue] + self.frame.size.height/2);   // - is necessary because of Quartz inverted y axis
+            float x = [correctionMass.x floatValue];
+            float y = [correctionMass.y floatValue];
+            
+            if (correctionMass.fromA) {
+                float xB = [correctionMass.rod.xB floatValue];
+                float yB = [correctionMass.rod.yB floatValue];
+                
+                
+            }
+            
+        }
     }
 
 }

@@ -2,14 +2,14 @@
 //  Rod.h
 //  balancing
 //
-//  Created by Grzegorz Krukiewicz-Gacek on 03.02.2013.
+//  Created by Grzegorz Krukiewicz-Gacek on 04.02.2013.
 //  Copyright (c) 2013 AGDev. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Mechanism;
+@class CorrectionMass, Mechanism;
 
 @interface Rod : NSManagedObject
 
@@ -21,7 +21,8 @@
 @property (nonatomic, retain) NSNumber * xB;
 @property (nonatomic, retain) NSNumber * yA;
 @property (nonatomic, retain) NSNumber * yB;
-@property (nonatomic, retain) NSNumber * bPointMass;
+@property (nonatomic, retain) NSNumber * previousMass;
 @property (nonatomic, retain) Mechanism *mechanism;
+@property (nonatomic, retain) CorrectionMass *correctionMass;
 
 @end

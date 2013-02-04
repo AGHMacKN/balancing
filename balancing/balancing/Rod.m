@@ -2,11 +2,12 @@
 //  Rod.m
 //  balancing
 //
-//  Created by Grzegorz Krukiewicz-Gacek on 03.02.2013.
+//  Created by Grzegorz Krukiewicz-Gacek on 04.02.2013.
 //  Copyright (c) 2013 AGDev. All rights reserved.
 //
 
 #import "Rod.h"
+#import "CorrectionMass.h"
 #import "Mechanism.h"
 
 
@@ -20,7 +21,8 @@
 @dynamic xB;
 @dynamic yA;
 @dynamic yB;
-@dynamic bPointMass;
+@dynamic previousMass;
 @dynamic mechanism;
+@dynamic correctionMass;
 
 @end

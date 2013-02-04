@@ -22,7 +22,6 @@
 		ACA76E1D16BD90D700C47B2B /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA76E1C16BD90D700C47B2B /* ContentView.m */; };
 		ACA76E2016BD910900C47B2B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACA76E1E16BD910200C47B2B /* QuartzCore.framework */; };
 		ACA76E2316BD985B00C47B2B /* StartTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA76E2216BD985A00C47B2B /* StartTableViewController.m */; };
-		ACA76E2616BD9E2F00C47B2B /* Mechanism.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA76E2516BD9E2F00C47B2B /* Mechanism.m */; };
 		ACA76E2A16BDAA9400C47B2B /* Support.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA76E2916BDAA9400C47B2B /* Support.m */; };
 		ACA76E3516BDAAEF00C47B2B /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = ACA76E2B16BDAAED00C47B2B /* Default-Landscape@2x~ipad.png */; };
 		ACA76E3616BDAAEF00C47B2B /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = ACA76E2C16BDAAED00C47B2B /* Default-Landscape~ipad.png */; };
@@ -34,9 +33,11 @@
 		ACA76E3C16BDAAEF00C47B2B /* RollerSupport@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACA76E3216BDAAEE00C47B2B /* RollerSupport@2x.png */; };
 		ACA76E3D16BDAAEF00C47B2B /* RollerSupportSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = ACA76E3316BDAAEE00C47B2B /* RollerSupportSmall.png */; };
 		ACA76E3E16BDAAEF00C47B2B /* RollerSupportSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACA76E3416BDAAEE00C47B2B /* RollerSupportSmall@2x.png */; };
-		ACDE847E16BEB3D900838608 /* Rod.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDE847D16BEB3D900838608 /* Rod.m */; };
 		ACDE848716BEB54100838608 /* SupportDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDE848516BEB54100838608 /* SupportDetailsViewController.m */; };
 		ACDE848816BEB54100838608 /* SupportDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACDE848616BEB54100838608 /* SupportDetailsViewController.xib */; };
+		ACDE848E16BF2B5A00838608 /* Mechanism.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDE848D16BF2B5A00838608 /* Mechanism.m */; };
+		ACDE849116BF9A0100838608 /* CorrectionMass.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDE849016BF9A0100838608 /* CorrectionMass.m */; };
+		ACDE849716BF9C1800838608 /* Rod.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDE849616BF9C1800838608 /* Rod.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,8 +63,6 @@
 		ACA76E1E16BD910200C47B2B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		ACA76E2116BD985A00C47B2B /* StartTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartTableViewController.h; sourceTree = "<group>"; };
 		ACA76E2216BD985A00C47B2B /* StartTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartTableViewController.m; sourceTree = "<group>"; };
-		ACA76E2416BD9E2F00C47B2B /* Mechanism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mechanism.h; sourceTree = "<group>"; };
-		ACA76E2516BD9E2F00C47B2B /* Mechanism.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mechanism.m; sourceTree = "<group>"; };
 		ACA76E2816BDAA9400C47B2B /* Support.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Support.h; sourceTree = "<group>"; };
 		ACA76E2916BDAA9400C47B2B /* Support.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Support.m; sourceTree = "<group>"; };
 		ACA76E2B16BDAAED00C47B2B /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
@@ -76,11 +75,15 @@
 		ACA76E3216BDAAEE00C47B2B /* RollerSupport@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RollerSupport@2x.png"; sourceTree = "<group>"; };
 		ACA76E3316BDAAEE00C47B2B /* RollerSupportSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RollerSupportSmall.png; sourceTree = "<group>"; };
 		ACA76E3416BDAAEE00C47B2B /* RollerSupportSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RollerSupportSmall@2x.png"; sourceTree = "<group>"; };
-		ACDE847C16BEB3D900838608 /* Rod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rod.h; sourceTree = "<group>"; };
-		ACDE847D16BEB3D900838608 /* Rod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rod.m; sourceTree = "<group>"; };
 		ACDE848416BEB54100838608 /* SupportDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportDetailsViewController.h; sourceTree = "<group>"; };
 		ACDE848516BEB54100838608 /* SupportDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupportDetailsViewController.m; sourceTree = "<group>"; };
 		ACDE848616BEB54100838608 /* SupportDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SupportDetailsViewController.xib; sourceTree = "<group>"; };
+		ACDE848C16BF2B5A00838608 /* Mechanism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mechanism.h; sourceTree = "<group>"; };
+		ACDE848D16BF2B5A00838608 /* Mechanism.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mechanism.m; sourceTree = "<group>"; };
+		ACDE848F16BF9A0100838608 /* CorrectionMass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CorrectionMass.h; sourceTree = "<group>"; };
+		ACDE849016BF9A0100838608 /* CorrectionMass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CorrectionMass.m; sourceTree = "<group>"; };
+		ACDE849516BF9C1800838608 /* Rod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rod.h; sourceTree = "<group>"; };
+		ACDE849616BF9C1800838608 /* Rod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rod.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,12 +170,14 @@
 		ACA76E2716BD9E3300C47B2B /* DataClasses */ = {
 			isa = PBXGroup;
 			children = (
-				ACDE847C16BEB3D900838608 /* Rod.h */,
-				ACDE847D16BEB3D900838608 /* Rod.m */,
-				ACA76E2416BD9E2F00C47B2B /* Mechanism.h */,
-				ACA76E2516BD9E2F00C47B2B /* Mechanism.m */,
+				ACDE848C16BF2B5A00838608 /* Mechanism.h */,
+				ACDE848D16BF2B5A00838608 /* Mechanism.m */,
+				ACDE849516BF9C1800838608 /* Rod.h */,
+				ACDE849616BF9C1800838608 /* Rod.m */,
 				ACA76E2816BDAA9400C47B2B /* Support.h */,
 				ACA76E2916BDAA9400C47B2B /* Support.m */,
+				ACDE848F16BF9A0100838608 /* CorrectionMass.h */,
+				ACDE849016BF9A0100838608 /* CorrectionMass.m */,
 			);
 			name = DataClasses;
 			sourceTree = "<group>";
@@ -276,10 +281,11 @@
 				ACA76E1716BD77ED00C47B2B /* DataModel.xcdatamodeld in Sources */,
 				ACA76E1D16BD90D700C47B2B /* ContentView.m in Sources */,
 				ACA76E2316BD985B00C47B2B /* StartTableViewController.m in Sources */,
-				ACA76E2616BD9E2F00C47B2B /* Mechanism.m in Sources */,
 				ACA76E2A16BDAA9400C47B2B /* Support.m in Sources */,
-				ACDE847E16BEB3D900838608 /* Rod.m in Sources */,
 				ACDE848716BEB54100838608 /* SupportDetailsViewController.m in Sources */,
+				ACDE848E16BF2B5A00838608 /* Mechanism.m in Sources */,
+				ACDE849116BF9A0100838608 /* CorrectionMass.m in Sources */,
+				ACDE849716BF9C1800838608 /* Rod.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

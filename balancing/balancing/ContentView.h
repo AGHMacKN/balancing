@@ -15,6 +15,7 @@
 - (void)createRodWithMass:(int)mass aPoint:(CGPoint)aPoint bPoint:(CGPoint)bPoint;
 - (NSArray *)currentMechanismRods;
 - (NSArray *)currentMechanismSupports;
+- (NSArray *)currentMechanismCorrectionMasses;
 @end
 
 @interface ContentView : UIView
